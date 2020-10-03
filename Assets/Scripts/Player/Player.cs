@@ -79,10 +79,11 @@ public class Player : MonoBehaviour
     }
 
     float size = 0;
+    public Vector2 BubbleScale;
     public void SetBubbleSize(float size)
     {
-        DialogueBubble.anchorMin = new Vector2(1 - size, 0);
-        DialogueBubble.anchorMax = new Vector2(1, size);
+        DialogueBubble.anchorMin = new Vector2(1 - (size * BubbleScale.x), 0);
+        DialogueBubble.anchorMax = new Vector2(1, size * BubbleScale.y);
     }
 
     public bool StepOpenDialogue()
@@ -103,7 +104,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            size = Mathf.Clamp01(size + Time.deltaTime * 3);
+            size = Mathf.Clamp01(size + Time.deltaTime * 8);
             SetBubbleSize(size);
             return size == 1;
         }
@@ -119,7 +120,7 @@ public class Player : MonoBehaviour
 
         if(size > 0)
         {
-            size = Mathf.Clamp01(size - Time.deltaTime * 8);
+            size = Mathf.Clamp01(size - Time.deltaTime * 12);
             SetBubbleSize(size);
             return false;
         }

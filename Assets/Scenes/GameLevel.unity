@@ -152,16 +152,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: DialogueAction
-  Dialogue:
-    protagonist: 0
+  Dialogues:
+  - protagonist: 1
+    BubbleScale: {x: 0, y: 0}
     lines:
-    - Where am I ?
-    - 'Hello?
+    - Can you hear me?
+    - Hello?
+    - 'My mame is Erica, I am a prisoner in the castle.
 
-'
-    - 'Is anyone here?
-
-      Am I alone?'
+      The Sorcerer, Aghanim
+      has done... something.'
+    - To the other young maidens. Now only I remain.
+    - I am in the dungeon of the castle. Please Help Me.
+  - protagonist: 0
+    BubbleScale: {x: 0.5, y: 0.6}
+    lines:
+    - Hello?
+    - Is Anyone There?
+    - Anyone here?
   PostDialogue: []
 --- !u!4 &291582718
 Transform:

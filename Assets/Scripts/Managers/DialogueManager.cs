@@ -8,7 +8,7 @@ public class DialogueManager : Manager
 {
     public bool isPlayingDialogue { get; private set; }
     Coroutine routine;
-    public void SetDialogue(Dialogue dialogue, Callable[] postDialogue, GameObject instigator = null)
+    public void SetDialogue(Dialogue[] dialogues, Callable[] postDialogue, GameObject instigator = null)
     {
         if (routine != null)
         {
@@ -16,7 +16,7 @@ public class DialogueManager : Manager
             StopCoroutine(routine);
         }
 
-        routine = StartCoroutine(PlayDialogue(dialogue, postDialogue, instigator));
+        routine = StartCoroutine(PlayDialogues(dialogues, postDialogue, instigator));
     }
 
     bool justClicked;
@@ -26,62 +26,76 @@ public class DialogueManager : Manager
         justClicked = Input.GetMouseButtonDown(0);
     }
 
-    IEnumerator PlayDialogue(Dialogue dialogue, Callable[] postDialogue, GameObject instigator = null)
+    IEnumerator PlayDialogues(Dialogue[] dialogues, Callable[] postDialogue, GameObject instigator = null)
     {
         isPlayingDialogue = true;
 
-        if (dialogue.protagonist == Protagonist.Player)
+        foreach(var dialogue in dialogues)
         {
-            Player.instance.SetDialogueText(string.Empty);
-
-            while (!Player.instance.StepOpenDialogue())
+            if (dialogue.protagonist == Protagonist.Player)
             {
-                yield return new WaitForEndOfFrame();
-            }
-        }
+                Player.instance.BubbleScale = dialogue.BubbleScale;
+                Player.instance.SetDialogueText(string.Empty);
 
-        if(dialogue.lines != null)
-        {
-            foreach (var line in dialogue.lines)
-            {
-                float count = line.Length;
-                float t = 0.0f;
-
-                while(t <= count)
+                while (!Player.instance.StepOpenDialogue())
                 {
-                    if (justClicked)
+                    yield return new WaitForEndOfFrame();
+                }
+            }
+            else
+                justClicked = false;
+
+            if (dialogue.lines != null)
+            {
+                foreach (var line in dialogue.lines)
+                {
+                    float count = line.Length;
+                    float t = 0.0f;
+
+                    while (t <= count)
                     {
-                        t = count + Time.deltaTime;
-                        justClicked = false;
+                        if (justClicked)
+                        {
+                            t = count + Time.deltaTime;
+                            justClicked = false;
+                        }
+
+                        else
+                            t += Time.deltaTime * 32;
+                        string currentline = line.Substring(0, (int)t);
+
+                        if (dialogue.protagonist == Protagonist.Player)
+                            Player.instance.SetDialogueText(currentline);
+                        else
+                            Erica.instance.SetDialogueText(currentline);
+
+                        yield return new WaitForEndOfFrame();
                     }
 
-                    else
-                        t += Time.deltaTime * 32;
-                    string currentline = line.Substring(0, (int)t);
-
-                    if (dialogue.protagonist == Protagonist.Player)
-                        Player.instance.SetDialogueText(currentline);
-
-                    yield return new WaitForEndOfFrame();
+                    while (!justClicked)
+                    {
+                        Manager.Get<CursorManager>().SetCursor(CursorType.Dialogue);
+                        yield return new WaitForEndOfFrame();
+                    }
+                    justClicked = false;
                 }
-
-                while (!justClicked)
-                {
-                    Manager.Get<CursorManager>().SetCursor(CursorType.Dialogue);
-                    yield return new WaitForEndOfFrame();
-                }
-                justClicked = false;
             }
-        }
 
+            yield return new WaitForEndOfFrame();
 
-        if (dialogue.protagonist == Protagonist.Player)
-        {
-            while (!Player.instance.StepCloseDialogue())
+            if (dialogue.protagonist == Protagonist.Player)
             {
-                yield return new WaitForEndOfFrame();
+                while (!Player.instance.StepCloseDialogue())
+                {
+                    yield return new WaitForEndOfFrame();
+                }
+            }
+            else
+            {
+                Erica.instance.SetDialogueText(string.Empty);
             }
         }
+
         isPlayingDialogue = false;
         routine = null;
         Callable.Call(postDialogue, instigator);
@@ -97,6 +111,7 @@ public enum Protagonist
 public struct Dialogue
 {
     public Protagonist protagonist;
+    public Vector2 BubbleScale;
        [Multiline]
     public string[] lines;
 }

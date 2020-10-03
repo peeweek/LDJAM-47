@@ -256,6 +256,7 @@ GameObject:
   - component: {fileID: 6186656961802505081}
   - component: {fileID: 7567145246962771619}
   - component: {fileID: 8577198411680005465}
+  - component: {fileID: 2853579591430966486}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -318,7 +319,7 @@ MonoBehaviour:
     m_MaxSize: 107
     m_Alignment: 0
     m_AlignByGeometry: 0
-    m_RichText: 1
+    m_RichText: 0
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.64
@@ -326,3 +327,16 @@ MonoBehaviour:
 
     Can you at least listen to what I say?
     You make me so sad'
+--- !u!114 &2853579591430966486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7250456795769173519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa122f04aa7d19d48abe289361bb87e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: {fileID: 8577198411680005465}
