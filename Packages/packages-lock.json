@@ -110,6 +110,12 @@
         "com.unity.timeline": "1.3.0"
       }
     },
+    "net.peeweek.retroizer": {
+      "version": "file:net.peeweek.retroizer",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
