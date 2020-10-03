@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: GameplayIngredientsSettings
   m_EditorClassIdentifier: 
   m_DisableWelcomeScreenAutoStart: 0
-  m_ExcludedManagers:
-  - UIManager
+  m_ExcludedManagers: []
   m_VerboseCalls: 0
   m_AllowUpdateCalls: 0

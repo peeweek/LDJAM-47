@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2440754688229975636}
   - component: {fileID: 6345405417867153364}
   - component: {fileID: 4762025533366772757}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Camera Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}

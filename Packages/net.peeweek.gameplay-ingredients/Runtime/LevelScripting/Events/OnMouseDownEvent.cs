@@ -13,6 +13,11 @@ namespace GameplayIngredients.Events
         {
             Callable.Call(MouseDown, this.gameObject);
         }
+
+        public void Update()
+        {
+            Debug.Log(Physics.queriesHitTriggers);
+        }
     }
 }
 
