@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: peeweek.net
   productName: LDJAM-47
-  defaultCursor: {fileID: 0}
+  defaultCursor: {fileID: 2800000, guid: 4e8173b791d986542b0ffe0462799866, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
   m_ShowUnitySplashScreen: 1
