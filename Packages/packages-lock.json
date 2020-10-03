@@ -101,6 +101,12 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
+    "li.lightingtools.lightprobesvolumes": {
+      "version": "file:LightingTools.LightProbesVolumes",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "net.peeweek.gameplay-ingredients": {
       "version": "file:net.peeweek.gameplay-ingredients",
       "depth": 0,

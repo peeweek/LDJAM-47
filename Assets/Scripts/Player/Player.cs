@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(Animator))]
 public class Player : MonoBehaviour
 {
     public float Speed = 1.0f;
-
+    Animator m_Animator;
     VirtualCameraManager m_VCM;
     CharacterController m_Char;
 
@@ -15,6 +16,7 @@ public class Player : MonoBehaviour
     {
         m_VCM = Manager.Get<VirtualCameraManager>();
         m_Char = GetComponent<CharacterController>();
+        m_Animator = GetComponent<Animator>();
     }
 
     public void LateUpdate()
@@ -36,5 +38,8 @@ public class Player : MonoBehaviour
         rgt.Normalize();
 
         m_Char.Move(Speed * (fwd * move.y + rgt * move.x) * Time.deltaTime);
+
+        m_Animator.SetBool("Moving", move.sqrMagnitude > 0);
+
     }
 }

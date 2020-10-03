@@ -85,7 +85,7 @@
 					// Ghost Sampling : enable define to activate
 					#define GHOST_SAMPLING;
 
-					static const float GhostLatencyIntensity = 0.03;
+					static const float GhostLatencyIntensity = 0.01;
 						// Number of samples (higer is slower)
 						#if defined(QUALITY_LOW)
 							static const int GhostNumSamples = 8;
