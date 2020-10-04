@@ -110,11 +110,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Camera Trigger VCam
       objectReference: {fileID: 0}
-    - target: {fileID: 708222152472670717, guid: 44703efef518481419952ae1ead64624,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 708222152472670719, guid: 44703efef518481419952ae1ead64624,
         type: 3}
       propertyPath: m_LocalPosition.x
