@@ -7,6 +7,9 @@ using UnityEngine;
 public class DialogueManager : Manager
 {
     public bool isPlayingDialogue { get; private set; }
+
+    public GameObject AudioSFX;
+
     Coroutine routine;
     public void SetDialogue(Dialogue[] dialogues, Callable[] postDialogue, GameObject instigator = null)
     {
@@ -43,7 +46,10 @@ public class DialogueManager : Manager
                 }
             }
             else
+            {
+                yield return new WaitForSeconds(0.2f);
                 justClicked = false;
+            }
 
             if (dialogue.lines != null)
             {
@@ -51,7 +57,7 @@ public class DialogueManager : Manager
                 {
                     float count = line.Length;
                     float t = 0.0f;
-
+                    AudioSFX.SetActive(true);
                     while (t <= count)
                     {
                         if (justClicked)
@@ -72,6 +78,7 @@ public class DialogueManager : Manager
                         yield return new WaitForEndOfFrame();
                     }
 
+                    AudioSFX.SetActive(false);
                     while (!justClicked)
                     {
                         Manager.Get<CursorManager>().SetCursor(CursorType.Dialogue);

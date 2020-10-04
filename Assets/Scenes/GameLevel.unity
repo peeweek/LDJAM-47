@@ -3216,7 +3216,7 @@ Transform:
   - {fileID: 396618362}
   - {fileID: 561337070}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &329310274
 PrefabInstance:
@@ -3692,7 +3692,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Dialogue
-  Dialogues: []
+  Dialogues:
+  - protagonist: 1
+    BubbleScale: {x: 1, y: 1}
+    lines:
+    - Help Me....
+    - DAMMIT HELP ME!
+  - protagonist: 0
+    BubbleScale: {x: 1, y: 0.5}
+    lines:
+    - Erica? What's Wrong?
+  - protagonist: 1
+    BubbleScale: {x: 1, y: 1}
+    lines:
+    - At least! Didn't you hear me calling?
+    - You need to Help Me, I'm aching like hell!
+    - Come here, there's someting wrong! I am in trouble.
+  - protagonist: 0
+    BubbleScale: {x: 1, y: 1}
+    lines:
+    - .... incoming.
+    - (did I already went through that?)
+  - protagonist: 1
+    BubbleScale: {x: 1, y: 1}
+    lines:
+    - ... I am "SO SORRY" I am putting you through all this. But I really need your
+      help honey.
+    - I'm hurting.... please come....
+    - Help me....
+  - protagonist: 0
+    BubbleScale: {x: 1, y: 0.5}
+    lines:
+    - Sure, I'm coming.
   PostDialogue: []
 --- !u!1001 &360993312
 PrefabInstance:
@@ -4857,7 +4888,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Dialogue
-  Dialogues: []
+  Dialogues:
+  - protagonist: 1
+    BubbleScale: {x: 1, y: 1}
+    lines:
+    - Help Me....
+    - Please Help Me....
+  - protagonist: 0
+    BubbleScale: {x: 0.5, y: 0.5}
+    lines:
+    - I'm coming....
+  - protagonist: 1
+    BubbleScale: {x: 1, y: 1}
+    lines:
+    - Are you?
+    - Thanks, I'm in such a pain!
+  - protagonist: 0
+    BubbleScale: {x: 0.5, y: 0.5}
+    lines:
+    - ... (I'm so sick of this)
   PostDialogue: []
 --- !u!1 &483626235
 GameObject:
@@ -4891,7 +4940,7 @@ Transform:
   - {fileID: 11384742}
   - {fileID: 1537753601}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &498478477
 PrefabInstance:
@@ -5859,6 +5908,7 @@ Transform:
   m_LocalScale: {x: 1.8890446, y: 1.011105, z: 0.28707057}
   m_Children:
   - {fileID: 561541143}
+  - {fileID: 1409355961}
   m_Father: {fileID: 860534336}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8469,6 +8519,7 @@ GameObject:
   - component: {fileID: 965140281}
   - component: {fileID: 965140283}
   - component: {fileID: 965140284}
+  - component: {fileID: 965140285}
   - component: {fileID: 965140282}
   m_Layer: 0
   m_Name: On BEGIN-LOOP
@@ -8554,8 +8605,25 @@ MonoBehaviour:
   Delay: 3
   DelayRange: {x: 3, y: 4}
   OnDelayComplete:
+  - {fileID: 965140285}
   - {fileID: 965140282}
   OnCanceled: []
+--- !u!114 &965140285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965140279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7b653d42ae687a47baa2f4b6df17ed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Increment LOOP_ID
+  Scope: 1
+  VariableName: LOOP_ID
+  increment: 1
 --- !u!4 &970842875 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a33b68de7e51cda42870350a68f0b7c0,
@@ -12112,6 +12180,134 @@ MonoBehaviour:
   Name: LogAction
   LogText: Instigator = %INSTIGATOR%
   type: 3
+--- !u!1 &1409355960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1409355961}
+  - component: {fileID: 1409355962}
+  m_Layer: 0
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1409355961
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409355960}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 645702559}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1409355962
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409355960}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 557473295852818405, guid: 2991437c58d4b2e4887d0986a47176fc,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 4623828aae6ce8b4aa10fc92a1810936, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1411455992
 GameObject:
   m_ObjectHideFlags: 0
@@ -12583,7 +12779,7 @@ Transform:
   - {fileID: 674782050}
   - {fileID: 668568382}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1421620700
 MonoBehaviour:
@@ -13179,7 +13375,7 @@ AudioSource:
   m_GameObject: {fileID: 1496429149}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 557473295852818405, guid: 2991437c58d4b2e4887d0986a47176fc,
+  OutputAudioMixerGroup: {fileID: 1111236805867057474, guid: 2991437c58d4b2e4887d0986a47176fc,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: be9f73876a616af49b0254b44f6a6e95, type: 3}
   m_PlayOnAwake: 1
@@ -13732,7 +13928,7 @@ Transform:
   - {fileID: 1549236554}
   - {fileID: 1871498645}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1531876407
 PrefabInstance:
@@ -14731,7 +14927,7 @@ Transform:
   - {fileID: 1897590936}
   - {fileID: 1549696940}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1620121333
 PrefabInstance:
@@ -15468,7 +15664,7 @@ MonoBehaviour:
   Name: Dialogue
   Dialogues:
   - protagonist: 0
-    BubbleScale: {x: 0.7, y: 0.6}
+    BubbleScale: {x: 1, y: 0.6}
     lines:
     - (here's your water....)
     - (you could have at least go fetch it yourself)
@@ -17083,7 +17279,7 @@ Transform:
   - {fileID: 1696082713}
   - {fileID: 161826328}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1936320413
 PrefabInstance:
@@ -18883,10 +19079,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Dialogue
   Dialogues:
-  - protagonist: 0
+  - protagonist: 1
     BubbleScale: {x: 1, y: 1}
     lines:
-    - I am so sick of this...
+    - Help Me....
+    - Please Help Me....
+  - protagonist: 0
+    BubbleScale: {x: 0.5, y: 0.5}
+    lines:
+    - (I am so sick of this)...
   PostDialogue: []
 --- !u!4 &2097425763
 Transform:
@@ -19631,7 +19832,7 @@ PrefabInstance:
     - target: {fileID: 1905848495300703491, guid: 3507d70a6e4922d488703a7d283fd0b4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1905848495300703491, guid: 3507d70a6e4922d488703a7d283fd0b4,
         type: 3}
@@ -19779,7 +19980,7 @@ PrefabInstance:
     - target: {fileID: 3475070571670980969, guid: 7fed47a1f3cba844db8f4771f3811c4c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3475070571670980969, guid: 7fed47a1f3cba844db8f4771f3811c4c,
         type: 3}
@@ -20047,7 +20248,7 @@ PrefabInstance:
     - target: {fileID: 1760839966353172457, guid: e60663a097968ee47bb49b24d2f5e3b4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 1760839966353172457, guid: e60663a097968ee47bb49b24d2f5e3b4,
         type: 3}
@@ -20221,6 +20422,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6181012873543138823, guid: a4eb1fbaa4266c842b7057e321529e20,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6181012873543138823, guid: a4eb1fbaa4266c842b7057e321529e20,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7121962546069775741, guid: a4eb1fbaa4266c842b7057e321529e20,
         type: 3}

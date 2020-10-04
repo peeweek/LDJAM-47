@@ -71,6 +71,7 @@ AudioMixerController:
     - de482703b2d71854093aa47f0516c93e
     - 81245646f5b91b74da68869d7cf8e5bb
     - ddb916e436b1e3c44859d329fc4320f4
+    - f7954d681d45ef14db3b325a8d167ef5
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -121,6 +122,7 @@ AudioMixerSnapshotController:
     92d97c218dd071f479601b3916b43604: -10.867776
     91ea50c547cf553459c78155aace0661: -2.2889833
     8c6881882d722ec40beda4664aaece1c: -5.3230715
+    9268eead55a27c94887f01364d97136a: 667
   m_TransitionOverrides: {}
 --- !u!243 &557473295852818405
 AudioMixerGroupController:
@@ -131,12 +133,33 @@ AudioMixerGroupController:
   m_Name: AmbientFX
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: ddb916e436b1e3c44859d329fc4320f4
-  m_Children: []
+  m_Children:
+  - {fileID: 1111236805867057474}
   m_Volume: 8c6881882d722ec40beda4664aaece1c
   m_Pitch: 9b7d3c5170535914f9b400b3b944f6eb
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 6069254053406845917}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &1111236805867057474
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AMB-Lopass
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: f7954d681d45ef14db3b325a8d167ef5
+  m_Children: []
+  m_Volume: 7127d146397d38348a611c9d13fd23e3
+  m_Pitch: 7f893675e4ddad841bb48df6096d841a
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 8732435835639043733}
+  - {fileID: 7369033468206159702}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -174,3 +197,33 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!244 &7369033468206159702
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 2b76ee13bde1ba24a83e01038f62a467
+  m_EffectName: Lowpass Simple
+  m_MixLevel: c5665bbf79f2d40439d03f83fe6418bd
+  m_Parameters:
+  - m_ParameterName: Cutoff freq
+    m_GUID: 9268eead55a27c94887f01364d97136a
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &8732435835639043733
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: d3439e819fce7744298ad1da05aadaf1
+  m_EffectName: Attenuation
+  m_MixLevel: 570449304af39884bbd282f9b30bb796
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0

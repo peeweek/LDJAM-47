@@ -23,6 +23,10 @@ public class Player : MonoBehaviour
     public RectTransform DialogueBubble;
     public Text Text;
 
+    [Header("Audio")]
+    public AudioSource StepSound;
+
+
     Animator m_Animator;
     VirtualCameraManager m_VCM;
     CharacterController m_Char;
@@ -93,6 +97,12 @@ public class Player : MonoBehaviour
         m_Char.Move(Speed * (fwd * move.y + rgt * move.x) * Time.deltaTime);
         m_Char.transform.position = new Vector3(m_Char.transform.position.x, Height, m_Char.transform.position.z);
         m_Animator.SetBool("Moving", move.sqrMagnitude > 0);
+
+        if (move.sqrMagnitude > 0 && !StepSound.isPlaying)
+            StepSound.Play();
+        else if (move.sqrMagnitude == 0 && StepSound.isPlaying)
+            StepSound.Stop(); 
+
     }
 
     float size = 0;
