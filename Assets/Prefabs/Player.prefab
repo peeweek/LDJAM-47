@@ -718,6 +718,8 @@ GameObject:
   - component: {fileID: 161857704138625767}
   - component: {fileID: 1402344022735542141}
   - component: {fileID: 8425883021619838574}
+  - component: {fileID: 7143585646640512593}
+  - component: {fileID: 1924627887195803905}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -812,6 +814,34 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &7143585646640512593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8367529756346489592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69d9427078288c1438ab154bbc590063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Disable Player
+  ControlEnabled: 0
+--- !u!114 &1924627887195803905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8367529756346489592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69d9427078288c1438ab154bbc590063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Enable Player
+  ControlEnabled: 1
 --- !u!1 &8566827796382919620
 GameObject:
   m_ObjectHideFlags: 0

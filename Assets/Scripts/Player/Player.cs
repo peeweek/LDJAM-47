@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
         if (instance != null)
             Debug.LogWarning("Already found a Player in scene");
         instance = this;
+
+        controlEnabled = true;
     }
 
     public void OnDisable()
@@ -50,8 +52,21 @@ public class Player : MonoBehaviour
 
     }
 
+    public bool controlEnabled { get; private set; }
+
+    public void SetControl(bool enabled)
+    {
+        controlEnabled = enabled;
+    }
+
     public void LateUpdate()
     {
+        if(!controlEnabled)
+        {
+            Manager.Get<CursorManager>().SetCursor(CursorType.Forbidden);
+            return;
+        }
+
         if (Manager.Get<DialogueManager>().isPlayingDialogue)
             return;
 
