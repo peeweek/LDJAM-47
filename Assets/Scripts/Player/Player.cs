@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     public static Vector3 position => instance.transform.position;
     public static float radius => instance.InteractionRadius;
 
+    public float Height = 0.1f;
+
     [Header("Interaction")]
     public float InteractionRadius = 2.0f;
     public float Speed = 1.0f;
@@ -74,7 +76,7 @@ public class Player : MonoBehaviour
         rgt.Normalize();
 
         m_Char.Move(Speed * (fwd * move.y + rgt * move.x) * Time.deltaTime);
-
+        m_Char.transform.position = new Vector3(m_Char.transform.position.x, Height, m_Char.transform.position.z);
         m_Animator.SetBool("Moving", move.sqrMagnitude > 0);
     }
 
